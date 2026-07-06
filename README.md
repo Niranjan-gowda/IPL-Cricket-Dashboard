@@ -1,40 +1,45 @@
-IPL Player Matchup & Phase Strategy Dashboard
+# IPL Player Matchup & Phase Strategy Dashboard
 
-This project is an interactive analytics dashboard built with Streamlit to analyze player matchups and phase-based strategies in the Indian Premier League (IPL). It provides insights into batter vs. bowler dynamics, dismissal patterns, and phase-specific performance, making it useful for coaches, analysts, and fans.
+Interactive Streamlit dashboard that analyses IPL ball-by-ball data to answer strategic questions: *Which bowler should face this batter at the death? Who handles the powerplay best?*
 
-Features
-Batter View – Analyze batting performance by position, match phase (Powerplay, Middle Overs, Death), and situation.
-Bowler View – Explore bowling economy, wicket-taking ability, and efficiency across phases.
-Batter vs Bowler Matchups – Compare head-to-head stats with predicted runs, dismissal probability, and boundary percentage.
-Clustering & Insights – Groups players with similar performance patterns and suggests alternatives for strategy.
-Advanced Metrics 
-* Dot Ball Pressure Index
-* Boundary Analysis
-* Dismissal Type Heatmaps
-* Batting Position Insights
+> 🎯 **Business framing:** This is a decision-support tool — the same matchup/segmentation logic applies to customer-vs-product analysis, campaign phase performance, or resource allocation.
 
-Data
-* Uses IPL ball-by-ball deliveries dataset.
-* Data is cleaned and aggregated for matchup and phase analysis.
-* Supports user-uploaded CSVs for additional analysis.
+<!-- TODO: add a screenshot or GIF of the dashboard here -->
+<!-- TODO: add live demo link once deployed to Streamlit Community Cloud -->
 
-Tech Stack
-* Python: pandas, numpy, scikit-learn
-* Streamlit: interactive dashboard framework
-* Plotly / Matplotlib: data visualizations
+## Key insights the dashboard surfaces
 
-Installation
-Clone the repository and install dependencies:
+- **Batter vs Bowler matchups** — head-to-head stats with predicted runs, dismissal probability, and boundary %
+- **Phase analysis** — performance split by Powerplay, Middle Overs, and Death
+- **Player clustering** — scikit-learn groups players with similar profiles and suggests tactical alternatives
+- **Advanced metrics** — Dot Ball Pressure Index, boundary analysis, dismissal-type heatmaps
+
+## Tech stack
+
+Python (pandas, NumPy, scikit-learn) · Streamlit · Plotly
+
+## Quick start
+
+```bash
 git clone https://github.com/Niranjan-gowda/IPL-Cricket-Dashboard.git
 cd IPL-Cricket-Dashboard
 pip install -r requirements.txt
-
-Usage
-Run the Streamlit app:
 streamlit run Decision_lab.py
-Then open the local URL shown in the terminal (default: http://localhost:8501) in your browser.
+```
 
-Applications
-* Coaches and analysts – refine match strategies with player insights.
-* Broadcasters – use data-backed visuals for commentary.
-* Fans – explore player rivalries and tactical trends.
+Open http://localhost:8501, then upload the included `deliveries.csv` (or any CSV in the IPL deliveries format) via the sidebar.
+
+## Project files
+
+```
+├── Decision_lab.py           # Streamlit app
+├── deliveries.csv            # ball-by-ball IPL dataset
+├── Decision_lab_report.docx  # analysis report
+└── requirements.txt
+```
+
+## What I'd improve next
+
+- Add unit tests for metric calculations
+- Cache aggregations for faster load on large datasets
+- Deploy to Streamlit Community Cloud
