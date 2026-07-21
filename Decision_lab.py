@@ -439,7 +439,9 @@ if user_file is not None:
                 predicted_sr = selected_batter_stats["strike_rate"].values[0]
                 predicted_eco = selected_bowler_stats["economy"].values[0]
                 predicted_rpo = predicted_sr * 6 / 100
-                predicted_boundary_pct = np.random.uniform(10, 25)  # Placeholder for ML prediction
+                batter_all = df[df['batter'] == selected_batter]
+                boundary_balls = ((batter_all['batsman_runs'] == 4) | (batter_all['batsman_runs'] == 6)).sum()
+                predicted_boundary_pct = (boundary_balls / len(batter_all)) * 100 if len(batter_all) else 0
                 col1, col2, col3, col4 = st.columns(4)
                 col1.metric("Predicted Strike Rate", round(predicted_sr, 2))
                 col2.metric("Predicted Economy", round(predicted_eco, 2))
@@ -461,7 +463,8 @@ if user_file is not None:
             balls = matchup_df.shape[0]
             sr = (runs / balls) * 100 if balls else 0
             eco = (runs / (balls / 6)) if balls else 0
-            boundary_pct = np.random.uniform(10, 25)
+            boundary_balls = ((matchup_df['batsman_runs'] == 4) | (matchup_df['batsman_runs'] == 6)).sum()
+            boundary_pct = (boundary_balls / balls) * 100 if balls else 0
             col1, col2, col3, col4, col5 = st.columns(5)
             col1.metric("Runs Scored", runs)
             col2.metric("Balls Faced", balls)

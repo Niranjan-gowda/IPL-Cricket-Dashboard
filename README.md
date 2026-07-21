@@ -2,8 +2,6 @@
 
 An interactive analytics dashboard built with Streamlit to analyse player matchups and phase-based strategies in the Indian Premier League (IPL), using 200,000+ ball-by-ball deliveries. It provides insights into batter vs bowler dynamics, dismissal patterns and phase-specific performance for coaches, analysts and fans.
 
-![Dashboard screenshot](screenshot.png)
-
 ## Features
 
 **Batter View** — career stats, all-time IPL leaderboards, dismissal-type breakdowns, phase-wise strike rates (Powerplay, Middle Overs, Death) and performance against each opponent team.
